@@ -11,6 +11,12 @@ spring:
             - Path=/booking-service/**
           filters:
             - RewritePath=/booking-service/(?<path>.*), /${path}
+         - id: hall-service
+          uri: http://hall-service.default.svc.cluster.local:8080
+          predicates:
+            - Path=/hall-service/**
+          filters:
+            - RewritePath=/hall-service/(?<path>.*), /${path}
         - id: user-service
           uri: http://user-service.default.svc.cluster.local:8080
           predicates:
